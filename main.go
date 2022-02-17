@@ -123,11 +123,10 @@ func main() {
 
 	port := os.Getenv("PORT")
 
-	redisURL := "localhost:6379"
-	opt, err := redis.ParseURL(redisURL)
-	if err != nil {
-		panic(err)
+	opt := &redis.Options{
+		Addr: "localhost:6379",
 	}
+
 	rdb = redis.NewClient(opt)
 
 	http.Handle("/", http.FileServer(http.Dir("./public")))
