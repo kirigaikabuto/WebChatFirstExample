@@ -123,7 +123,7 @@ func main() {
 
 	port := os.Getenv("PORT")
 
-	redisURL := os.Getenv("REDIS_URL")
+	redisURL := "localhost:6379"
 	opt, err := redis.ParseURL(redisURL)
 	if err != nil {
 		panic(err)
